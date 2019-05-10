@@ -19,4 +19,5 @@ fn main() {
     let file = OpenOptions::new().read(true).write(true).create(true).open(filename); //sets read and write privalages to true, and creates file if its not present
     let mut contents: String = fs::read_to_string(path).expect("bad read"); //contents now equals the content of the file
     println!("File = {}", filename);
+    println!("Contents = {}", contents);
 }
