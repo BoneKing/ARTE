@@ -26,4 +26,8 @@ fn main() {
     let mut contents: String = fs::read_to_string(path).expect("bad read"); //contents now equals the content of the file
     println!("File = {}", filename);
     println!("Contents = {}", contents);
+    let lineDispMax = 50;
+    let mut topLine =0;
+    let mut bottomLine = topLine+lineDispMax;
+      
 }
