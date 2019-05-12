@@ -25,10 +25,10 @@ static mut currentDesktop: i32 = 0; // current desktop
 
 struct split{ //a split is what we are calling a window with in a tab, there can be 1 split to tab or n splits in a tab
         content: String, //a vector of ropes where each rope is a lone from the file
-        struct currentLine(String, i64), //what the current line is (content of line, line number) 
+        currentLine: (String, i64), //what the current line is (content of line, line number) 
         //fileHistory, //stack of file history versions for the sessions
         filename: String, //filename of file open in split
-        struct coordinates(i32,i32,i32), //(what split, what tab, what desktop)
+        coordinates: (i32,i32,i32), //(what split, what tab, what desktop)
         topLine: i64, //line number being displayed on top of split
         bottomLine: i64, //line number being displayed on bottom of split
 }
@@ -49,27 +49,31 @@ fn main() {
     let screenheight: i64 = 50;
 }
 
-fn display(screenheight: i64){
+fn display(screenheight: i64, content: Vec){
     let mut topeLine: i64 =0;
     let mut bottomLine: i64 = topLine+screenheight;
-    for i in screenheight {
+    let mut num = 0;
+    while num != screenheight {
         println!("{}    ", i+1);
-        println!(content[i]);
+        println!("{}", content[num]);
         println!("\n");
+        num-=-1; //lol 
     }
 }
 
 fn open(filename: String){
-    let path = Path::new(filename); //saves path name
+    let path = Path::new(&filename); //saves path name
     let display = path.display(); //Honnestly I have no idea people just always have path followed by this so I figured it wouldn't hurt 
     let file = OpenOptions::new().read(true).write(true).create(true).open(filename); //sets read and write privalages to true, and creates file if its not present
     let mut contents: String = fs::read_to_string(path).expect("bad read"); //contents now equals the content of the file
-    let split[splitTotal] = split{
-        contents: fs::read_to_string(path).expect("bad read"), //contents now equals the content of the file
+    let mut content = Vec::new();
+    let mut split = Vec::new();
+    split[splitTotal] = split{
+        content: fs::read_to_string(path).expect("bad read"), //contents now equals the content of the file
         currentLine: (content[0], 0),
         //fileHistory
         filename: filename,
-        coordinates: (splitTotal, currentTab, CurrentDesktop),
+        coordinates: (splitTotal, currentTab, currentDesktop),
         topLine: 0,
         bottomLine: topLine+screenheight,
     }
