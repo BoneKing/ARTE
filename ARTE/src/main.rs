@@ -1,7 +1,7 @@
 //File: main.rs
 //Created by Andy Mahoney
 //on: 5/9/19
-//last updated: 5/10/19
+//last updated: 5/12/19
 //contact: andym AT fortrash DOT com
 
 use std::env;
@@ -23,6 +23,16 @@ static mut currentSplit: i32 = 0; //current split
 static mut currentTab: i32 = 0; //curent tab
 static mut currentDesktop: i32 = 0; // current desktop
 
+struct split{ //a split is what we are calling a window with in a tab, there can be 1 split to tab or n splits in a tab
+        content: String, //a vector of ropes where each rope is a lone from the file
+        struct currentLine(String, i64), //what the current line is (content of line, line number) 
+        //fileHistory, //stack of file history versions for the sessions
+        filename: String, //filename of file open in split
+        struct coordinates(i32,i32,i32), //(what split, what tab, what desktop)
+        topLine: i64, //line number being displayed on top of split
+        bottomLine: i64, //line number being displayed on bottom of split
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect(); //accepts cli arguements 
     let filename =&args[1]; //takes file name from arg
@@ -37,19 +47,8 @@ fn main() {
     let mut topLine: i64 =0;
     let mut bottomLine: i64 = topLine+lineDispMax;
     let screenheight: i64 = 50;
-    struct split{ //a split is what we are calling a window with in a tab, there can be 1 split to tab or n splits in a tab
-        content: String, //a vector of ropes where each rope is a lone from the file
-        struct currentLine(String, i64), //what the current line is (content of line, line number) 
-        //fileHistory, //stack of file history versions for the sessions
-        filename: String, //filename of file open in split
-        struct coordinates(i32,i32,i32), //(what split, what tab, what desktop)
-        topLine: i64, //line number being displayed on top of split
-        bottomLine: i64, //line number being displayed on bottom of split
-    }
-    let split1 = split{
-        content: fs
-    }  
 }
+
 fn display(screenheight: i64){
     let mut topeLine: i64 =0;
     let mut bottomLine: i64 = topLine+screenheight;
@@ -59,6 +58,7 @@ fn display(screenheight: i64){
         println!("\n");
     }
 }
+
 fn open(filename: String){
     let path = Path::new(filename); //saves path name
     let display = path.display(); //Honnestly I have no idea people just always have path followed by this so I figured it wouldn't hurt 
