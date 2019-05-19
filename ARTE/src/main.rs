@@ -88,7 +88,7 @@ unsafe fn open(filename: String){
         currentLine: (content[0], 0),
         //fileHistory
         filename: filename,
-        coordinates: (splitTotal, currentTab, currentDesktop),
+        coordinates: (gen_info.splitTotal, gen_info.currentTab, gen_info.currentDesktop),
         topLine: 0,
         bottomLine: topLine+screenheight,
     }
