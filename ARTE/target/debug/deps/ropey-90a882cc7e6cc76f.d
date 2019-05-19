@@ -1,0 +1,16 @@
+/home/andy/ARTE/ARTE/target/debug/deps/libropey-90a882cc7e6cc76f.rlib: /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/lib.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/crlf.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/rope.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/rope_builder.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/slice.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/mod.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/node.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/node_children.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/node_text.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/text_info.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/iter.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/str_utils.rs
+
+/home/andy/ARTE/ARTE/target/debug/deps/ropey-90a882cc7e6cc76f.d: /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/lib.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/crlf.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/rope.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/rope_builder.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/slice.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/mod.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/node.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/node_children.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/node_text.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/text_info.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/iter.rs /home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/str_utils.rs
+
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/lib.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/crlf.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/rope.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/rope_builder.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/slice.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/mod.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/node.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/node_children.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/node_text.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/tree/text_info.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/iter.rs:
+/home/andy/.cargo/registry/src/github.com-1ecc6299db9ec823/ropey-1.0.1/src/str_utils.rs:

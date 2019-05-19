@@ -1,0 +1,23 @@
+[[package]]
+name = "ARTE"
+version = "0.1.0"
+dependencies = [
+ "ropey 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "ropey"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "smallvec 0.6.9 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "smallvec"
+version = "0.6.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[metadata]
+"checksum ropey 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "a0dd053c2cccd1e21d449998818648527c9a088609e7143bdae7b2aa9e4359fc"
+"checksum smallvec 0.6.9 (registry+https://github.com/rust-lang/crates.io-index)" = "c4488ae950c49d403731982257768f48fada354a5203fe81f9bb6f43ca9002be"

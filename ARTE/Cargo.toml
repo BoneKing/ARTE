@@ -1,0 +1,8 @@
+[package]
+name = "ARTE"
+version = "0.1.0"
+authors = ["Andy Mahoney mahonea@clarkson.edu"]
+edition = "2018"
+
+[dependencies]
+ropey = "1.0.1"
