@@ -18,15 +18,17 @@ use std::fs::read_to_string;
 use std::io::{BufReader, BufWriter};
 use ropey::Rope;
 
-static mut splitTotal: usize = 0; //tells other functions how many splits currently exist
-static mut tabTotal: i32 = 0; //tells other functions how many splits currently exist
-static mut desktopTotal: i32 = 0; //tells other functions how many splits currently exist
-static mut currentSplit: i32 = 0; //current split
-static mut currentTab: i32 = 0; //curent tab
-static mut currentDesktop: i32 = 0; // current desktop
-static mut screenheight: i64 = 50;
-static mut topLine: i64 = 0;
-static mut bottomLine: i64 = topLine + screenheight;
+struct gen_info{
+    static mut splitTotal: usize = 0; //tells other functions how many splits currently exist
+    static mut tabTotal: i32 = 0; //tells other functions how many splits currently exist
+    static mut desktopTotal: i32 = 0; //tells other functions how many splits currently exist
+    static mut currentSplit: i32 = 0; //current split
+    static mut currentTab: i32 = 0; //curent tab
+    static mut currentDesktop: i32 = 0; // current desktop
+    static mut screenheight: i64 = 50;
+    static mut topLine: i64 = 0;
+    static mut bottomLine: i64 = topLine + screenheight;
+}
 
 struct split{ //a split is what we are calling a window with in a tab, there can be 1 split to tab or n splits in a tab
         content: String, //a vector of ropes where each rope is a lone from the file
