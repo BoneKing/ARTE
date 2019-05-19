@@ -15,20 +15,25 @@ use std::error::Error;
 use std::fs::OpenOptions;
 use std::fs;
 use std::fs::read_to_string;
+use std::io::{BufReader, BufWriter};
+use ropey::Rope;
 
-static mut splitTotal: i32 = 0; //tells other functions how many splits currently exist
+static mut splitTotal: usize = 0; //tells other functions how many splits currently exist
 static mut tabTotal: i32 = 0; //tells other functions how many splits currently exist
 static mut desktopTotal: i32 = 0; //tells other functions how many splits currently exist
 static mut currentSplit: i32 = 0; //current split
 static mut currentTab: i32 = 0; //curent tab
 static mut currentDesktop: i32 = 0; // current desktop
+static mut screenheight: i64 = 50;
+static mut topLine: i64 = 0;
+static mut bottomLine: i64 = topLine + screenheight;
 
 struct split{ //a split is what we are calling a window with in a tab, there can be 1 split to tab or n splits in a tab
         content: String, //a vector of ropes where each rope is a lone from the file
         currentLine: (String, i64), //what the current line is (content of line, line number) 
         //fileHistory, //stack of file history versions for the sessions
         filename: String, //filename of file open in split
-        coordinates: (i32,i32,i32), //(what split, what tab, what desktop)
+        coordinates: (usize,i32,i32), //(what split, what tab, what desktop)
         topLine: i64, //line number being displayed on top of split
         bottomLine: i64, //line number being displayed on bottom of split
 }
@@ -40,28 +45,36 @@ fn main() {
     let display = path.display(); //Honnestly I have no idea people just always have path followed by this so I figured it wouldn't hurt 
     println!("opening file: {}", filename); 
     let file = OpenOptions::new().read(true).write(true).create(true).open(filename); //sets read and write privalages to true, and creates file if its not present
-    let mut contents: String = fs::read_to_string(path).expect("bad read"); //contents now equals the content of the file
+    let mut contents = Rope::from_reader(
+        File::open(path).expect("bad path")
+    ).expect("getting contents failed"); 
+    let start_idx = contents.line_to_char(0);
+    let end_idx = contents.line_to_char(4);
+    //.expect("bad read"); //contents now equals the content of the file
     println!("File = {}", filename);
-    println!("Contents = {}", contents);
+    println!("Contents = {}", contents.slice(start_idx..end_idx));
+    println!("contents line 4 {}", contents.line(3));
     let lineDispMax: i64 = 50;
-    let mut topLine: i64 =0;
-    let mut bottomLine: i64 = topLine+lineDispMax;
-    let screenheight: i64 = 50;
+    //let mut topLine: i64 =0;
+    //let mut bottomLine: i64 = topLine+lineDispMax;
+    //let screenheight: i64 = 50;
+    //display(contents);
 }
-
-fn display(screenheight: i64, content: Vec){
-    let mut topeLine: i64 =0;
-    let mut bottomLine: i64 = topLine+screenheight;
+/* Under construction fines doubled
+fn display(content){
+    //let mut topLine: i64 =0;
+    //let mut bottomLine: i64 = topLine+screenheight;
     let mut num = 0;
     while num != screenheight {
-        println!("{}    ", i+1);
+        println!("{}    ", num+1);
         println!("{}", content[num]);
         println!("\n");
         num-=-1; //lol 
     }
 }
+Leaving construction area */
 
-fn open(filename: String){
+unsafe fn open(filename: String){
     let path = Path::new(&filename); //saves path name
     let display = path.display(); //Honnestly I have no idea people just always have path followed by this so I figured it wouldn't hurt 
     let file = OpenOptions::new().read(true).write(true).create(true).open(filename); //sets read and write privalages to true, and creates file if its not present
