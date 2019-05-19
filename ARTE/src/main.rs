@@ -19,15 +19,15 @@ use std::io::{BufReader, BufWriter};
 use ropey::Rope;
 
 struct gen_info{
-    static mut splitTotal: usize = 0; //tells other functions how many splits currently exist
-    static mut tabTotal: i32 = 0; //tells other functions how many splits currently exist
-    static mut desktopTotal: i32 = 0; //tells other functions how many splits currently exist
-    static mut currentSplit: i32 = 0; //current split
-    static mut currentTab: i32 = 0; //curent tab
-    static mut currentDesktop: i32 = 0; // current desktop
-    static mut screenheight: i64 = 50;
-    static mut topLine: i64 = 0;
-    static mut bottomLine: i64 = topLine + screenheight;
+    splitTotal: usize; //tells other functions how many splits currently exist
+    tabTotal: i32; //tells other functions how many splits currently exist
+    desktopTotal: i32; //tells other functions how many splits currently exist
+    currentSplit: i32; //current split
+    currentTab: i32; //curent tab
+    currentDesktop: i32; // current desktop
+    screenheight: i64;
+    topLine: i64; //top line displayed
+    bottomLine: i64; //bottom line displayes
 }
 
 struct split{ //a split is what we are calling a window with in a tab, there can be 1 split to tab or n splits in a tab
@@ -45,6 +45,7 @@ fn main() {
     let filename =&args[1]; //takes file name from arg
     let path = Path::new(filename); //saves path name
     let display = path.display(); //Honnestly I have no idea people just always have path followed by this so I figured it wouldn't hurt 
+    let mut GenInfo = gen_info{ splitTotal: 0, tabTotal: 0, desktopTotal: 0, currentSplit: 0, currentTab: 0, currentDesktop: 0, screenheight: 50, topLine: 0, bottomLine: topLine + screenheight };
     println!("opening file: {}", filename); 
     let file = OpenOptions::new().read(true).write(true).create(true).open(filename); //sets read and write privalages to true, and creates file if its not present
     let mut contents = Rope::from_reader(
@@ -82,13 +83,14 @@ unsafe fn open(filename: String){
     let file = OpenOptions::new().read(true).write(true).create(true).open(filename); //sets read and write privalages to true, and creates file if its not present
     let mut contents: String = fs::read_to_string(path).expect("bad read"); //contents now equals the content of the file
     let mut content = Vec::new();
+    let mut GenInfo2 = gen_info{ splitTotal: 0, tabTotal: 0, desktopTotal: 0, currentSplit: 0, currentTab: 0, currentDesktop: 0, screenheight: 50, topLine: 0, bottomLine: topLine + screenheight };
     let mut split = Vec::new();
     split[splitTotal] = split{
         content: fs::read_to_string(path).expect("bad read"), //contents now equals the content of the file
         currentLine: (content[0], 0),
         //fileHistory
         filename: filename,
-        coordinates: (gen_info.splitTotal, gen_info.currentTab, gen_info.currentDesktop),
+        coordinates: (GenInfo2.splitTotal, GenInfo2.currentTab, GenInfo2.currentDesktop),
         topLine: 0,
         bottomLine: topLine+screenheight,
     }
