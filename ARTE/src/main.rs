@@ -35,6 +35,7 @@ fn mode_Select(coordinates: &(i32,i32,i32),filename: &String){
     println!("Mode Select: \n E: Edit file \n O: open file \n S: new split \n T: new tab \n D: new Desktop \n W: Write to file \n Q: quit \n M: return to main menu "); //basic menu
     let mut menuOption = String::new(); 
     io::stdin().read_line(&mut menuOption).expect("input error on menuOption"); //gets menu option selected by user
+    println!("menuOption is {}",menuOption);
     match menuOption.as_str(){
         "Edit" => edit(&filename),
         "Open" => open(&coordinates, &filename),

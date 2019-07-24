@@ -1,1 +1,1 @@
-/home/andy/ARTE/ARTE/target/debug/ARTE: /home/andy/ARTE/ARTE/src/main.rs
+/mnt/c/ARTE/ARTE/target/debug/ARTE: /mnt/c/ARTE/ARTE/src/main.rs
